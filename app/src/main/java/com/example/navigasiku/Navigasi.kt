@@ -27,17 +27,25 @@ fun DataApp(
             modifier = Modifier.padding(paddingValues= isiRuang)
         ) {
             composable(route = Navigasi.Formulirku.name) {
-                FormIsian(
-                    onSubmitBtnClick = {
-                        navController.navigate(route= Navigasi.Detail.name)
-                    }
-                )
+                FormIsian { nama, alamat, jenisKelamin ->
+                    navController.currentBackStackEntry?.savedStateHandle?.set("nama", nama)
+                    navController.currentBackStackEntry?.savedStateHandle?.set("alamat", alamat)
+                    navController.currentBackStackEntry?.savedStateHandle?.set("jenisKelamin", jenisKelamin)
+                    navController.navigate(Navigasi.Detail.name)
+                }
             }
-            composable(route = Navigasi.Detail.name){
+
+            composable(route = Navigasi.Detail.name) {
+                val previousBackStackEntry = navController.previousBackStackEntry
+                val nama = previousBackStackEntry?.savedStateHandle?.get<String>("nama") ?: ""
+                val alamat = previousBackStackEntry?.savedStateHandle?.get<String>("alamat") ?: ""
+                val jenisKelamin = previousBackStackEntry?.savedStateHandle?.get<String>("jenisKelamin")
+
                 TampilData(
-                    onBackBtnClick = {
-                        cancelAndBackToFormulir(navController)
-                    }
+                    nama = nama,
+                    alamat = alamat,
+                    jenisKelamin = jenisKelamin,
+                    onBackBtnClick = { cancelAndBackToFormulir(navController) }
                 )
             }
         }
