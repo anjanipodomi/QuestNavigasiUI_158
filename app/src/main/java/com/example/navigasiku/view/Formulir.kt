@@ -1,7 +1,9 @@
 package com.example.navigasiku.view
 
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -45,7 +47,13 @@ fun FormIsian(
                     }
                 }
             }
-            Hori
+            HorizontalDivider(modifier = Modifier
+                .padding(all= 20.dp)
+                .width(width= 250.dp),
+                thickness = 1.dp,
+                color = Color.Red
+            )
+
         }
     }
 }
