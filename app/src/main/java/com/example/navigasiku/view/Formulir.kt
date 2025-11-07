@@ -1,10 +1,13 @@
 package com.example.navigasiku.view
 
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FormIsian(
     jenisK:List<String> = listOf("Laki-laki", "Perempuan"),
-    OnSubmitBtnClick : () -> Unit
+    onSubmitBtnClick : () -> Unit
 ) {
     Scaffold (modifier=Modifier,
         topBar={
@@ -27,6 +30,14 @@ fun FormIsian(
                 label = {Text(text = "Nama Lengkap")},
                 onValueChange = {},
             )
+            HorizontalDivider(modifier = Modifier
+                .padding(all= 20.dp)
+                .width(width= 250.dp), thickness = Thickness, color = Color.Red)
+            Row{
+                jenisK.forEach {
+                    item->
+                }
+            }
         }
     }
 }
