@@ -8,5 +8,9 @@ import androidx.compose.runtime.Composable
 fun TampilData(
     onBackBtnClick:()->Unit
 ) {
-
+    val items = listOf(
+        Pair(first = stringResource(id = R.string.nama_lengkap), second = "Anjani Dihapsari"),
+        Pair(first = stringResource(id = R.string.jenis_kelamin), second = "Perempuan"),
+        Pair(first = stringResource(id = R.string.alamat), second = "Kotamobagu"),
+    )
 }
