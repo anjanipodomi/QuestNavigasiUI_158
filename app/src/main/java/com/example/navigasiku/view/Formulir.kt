@@ -1,8 +1,15 @@
 package com.example.navigasiku.view
-
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
+import com.example.navigasiku.R
+
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -14,9 +21,9 @@ fun FormIsian(
     Scaffold (modifier=Modifier,
         topBar={
             TopAppBar(
-                title = {Text(text = stringResource(id=R.string.home), color = Color.White)},
+                title = {Text(text = stringResource(id = R.string.home), color = Color.White) },
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
-                    containerColor = colorResource(id = R.color.teal 700))
+                    containerColor = colorResource(id = R.color.teal_700))
             )}
 
     ){ isiRuang ->
@@ -34,7 +41,9 @@ fun FormIsian(
             )
             HorizontalDivider(modifier = Modifier
                 .padding(all= 20.dp)
-                .width(width= 250.dp), thickness = Thickness, color = Color.Red)
+                .width(width= 250.dp),
+                thickness = 1.dp,
+                color = Color.Red)
             Row{
                 jenisK.forEach {
                     item->
@@ -65,7 +74,7 @@ fun FormIsian(
             Button(
                 modifier = Modifier.fillMaxWidth(fraction = 1f)
                     .padding(all = 25.dp),
-                onClick = OnSubmitBtnClick
+                onClick = onSubmitBtnClick
             ) {
                 Text(text= stringResource(id = R.string.submit))
             }
